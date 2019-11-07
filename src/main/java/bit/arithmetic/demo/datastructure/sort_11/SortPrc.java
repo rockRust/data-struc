@@ -40,23 +40,23 @@ public class SortPrc {
     public static int[] insertSort(int[] n) {
         for (int i = 1; i < n.length; i++) {
             int value = n[i];
-            int j = i;
-            for (; j > 0; j--) {
-                if (n[j - 1] > value) {
-                    //换位
-                    n[j] = n[j - 1];
+            int j = i - 1;
+            for (; j >= 0; j--) {
+                if (n[j] > value) {
+                    n[j + 1] = n[j];
                 } else {
                     break;
                 }
             }
-            n[j] = value;
+            n[j + 1] = value;
         }
         return n;
     }
 
     public static void main(String[] args) {
         int[] n = {3, 2, 1};
-        int[] ints = insertSort(n);
+//        int[] ints = insertSort(n);
+        int[] ints = bubbleSort(n);
         System.out.println(ints);
     }
 }
