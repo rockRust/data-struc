@@ -1,9 +1,6 @@
 package bit.arithmetic.demo.socket;
 
-import jdk.jfr.events.SocketReadEvent;
-
 import java.io.BufferedInputStream;
-import java.io.Closeable;
 import java.io.IOException;
 import java.net.Socket;
 

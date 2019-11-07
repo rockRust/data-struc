@@ -37,7 +37,7 @@ public class SortPrc {
      * 插入排序
      *
      * @param n
-     * @return
+     * @return 找到要插入的位置
      */
     public static int[] insertSort(int[] n) {
         for (int i = 1; i < n.length; i++) {
@@ -56,7 +56,14 @@ public class SortPrc {
     }
 
     /**
-     *
+     * 快速排序
+     */
+    public static int[] quickSort(int[] n) {
+
+        return n;
+    }
+
+    /**
      * @param args
      */
 
