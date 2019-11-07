@@ -1,5 +1,7 @@
 package bit.arithmetic.demo.datastructure.sort_11;
 
+import java.util.Arrays;
+
 /**
  * create at:  2019-11-06  16:26
  *
@@ -53,10 +55,15 @@ public class SortPrc {
         return n;
     }
 
+    /**
+     *
+     * @param args
+     */
+
     public static void main(String[] args) {
         int[] n = {3, 2, 1};
 //        int[] ints = insertSort(n);
         int[] ints = bubbleSort(n);
-        System.out.println(ints);
+        System.out.println(Arrays.toString(ints));
     }
 }
