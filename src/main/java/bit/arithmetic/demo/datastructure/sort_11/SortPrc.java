@@ -55,14 +55,7 @@ public class SortPrc {
         return n;
     }
 
-    /**
-     * 快速排序
-     */
-    public static int[] quickSort(int[] n) {
-
-        return n;
-    }
-
+   
     /**
      * @param args
      */
