@@ -1,11 +1,9 @@
 package bit.arithmetic.demo.datastructure.hashtable_20;
 
 import org.springframework.lang.NonNull;
-import sun.security.util.Length;
 
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.logging.Level;
 
 /**
  * create at:  2019-11-14  11:19
