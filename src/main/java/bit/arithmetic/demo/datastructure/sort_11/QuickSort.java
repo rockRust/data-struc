@@ -99,10 +99,13 @@ public class QuickSort {
 
     public static void main(String[] args) {
 //        int[] n = {8, 5, 7, 1, 6, 2, 6};
-        int[] n = {1, 1, 2};
-        int[] ints = quickSort(n);
-        System.out.println(Arrays.toString(ints));
-        int kth = findKth(n, 2);
-        System.out.println(kth);
+//        int[] n = {1, 1, 2};
+//        int[] ints = quickSort(n);
+//        System.out.println(Arrays.toString(ints));
+//        int kth = findKth(n, 2);
+//        System.out.println(kth);
+//        for (int j = 1; (j <<= 1) < 5;  ^= 1);
+        int j = 5;
+        System.out.println(j << 1);
     }
 }
