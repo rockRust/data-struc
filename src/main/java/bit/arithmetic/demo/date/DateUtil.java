@@ -16,6 +16,22 @@ import java.util.Date;
 public class DateUtil {
 
     /**
+     * 获取指定间隔之前的日期
+     *
+     * @param unit   时间单位
+     * @param before 间隔
+     * @return yyyyMMddHHmmss
+     */
+    public static String before(int unit, int before) {
+        Calendar calendar = Calendar.getInstance();
+        calendar.add(unit, -before);
+        Date time = calendar.getTime();
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMM");
+        String format = sdf.format(time);
+        return format;
+    }
+
+    /**
      * 计算两个时间的时间差月为单位
      *
      * @param beginDate 开始时间
@@ -55,5 +71,9 @@ public class DateUtil {
         }
 //        System.out.println(dayToNowPeriod(beginDate));
         System.out.println(DurationFormatUtils.formatPeriod(beginDate.getTime(), Calendar.getInstance().getTime().getTime(), "MM"));
+
+        //申请卡的时间  2018.11.10  2019 11 14
+        String before = before(Calendar.MONTH, 13);
+        System.out.println(before);
     }
 }
