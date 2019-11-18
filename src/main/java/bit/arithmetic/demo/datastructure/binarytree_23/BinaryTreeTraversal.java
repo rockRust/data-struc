@@ -33,6 +33,10 @@ public class BinaryTreeTraversal {
         System.out.println(top.data);
     }
 
+    /**
+     * 查找
+     */
+
     public static class Node {
         public int data;
         public Node left;

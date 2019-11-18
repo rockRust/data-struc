@@ -65,7 +65,8 @@ public class LRUBaseHashTable<K, V> {
         }
     }
 
-    private void deleteNode(@NonNull Node node) {
+    private void deleteNode(Node node) {
+        if (node == null) return;
         node.prev.next = node.next;
         node.next.prev = node.prev;
     }
