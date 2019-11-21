@@ -1,5 +1,10 @@
 package bit.arithmetic.demo.datastructure.queue_09;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.PrintWriter;
+import java.util.ArrayList;
+
 /**
  * create at:  2019-11-06  11:43
  *
@@ -43,8 +48,5 @@ public class CircleArrayQueue {
         circle.enqueue(4);
         circle.enqueue(5);
         circle.enqueue(6);
-
-
-
     }
 }

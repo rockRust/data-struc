@@ -1,9 +1,8 @@
 package bit.arithmetic.demo.datastructure.hashtable_20;
 
-import org.springframework.lang.NonNull;
-
 import java.util.Hashtable;
 import java.util.Map;
+import java.util.concurrent.Executors;
 
 /**
  * create at:  2019-11-14  11:19
@@ -43,7 +42,7 @@ public class LRUBaseHashTable<K, V> {
         if (node == null) return null;
         V value = node.value;
         deleteNode(node);
-        moveToHead(node);
+        moveToFirst(node);
         return value;
     }
 
@@ -58,10 +57,10 @@ public class LRUBaseHashTable<K, V> {
                 --size;
             }
             table.put(key, newNode);
-            moveToHead(newNode);
+            moveToFirst(newNode);
         } else {
             kNode.value = value;
-            moveToHead(kNode);
+            moveToFirst(kNode);
         }
     }
 
@@ -71,12 +70,12 @@ public class LRUBaseHashTable<K, V> {
         node.next.prev = node.prev;
     }
 
-    private void moveToHead(Node node) {
+    private void moveToFirst(Node node) {
         node.next = head.next;
         node.prev = head;
 
-        head.next = node;
         head.next.prev = node;
+        head.next = node;
     }
 
     public class Node<K, V> {
@@ -92,5 +91,9 @@ public class LRUBaseHashTable<K, V> {
 
         public Node() {
         }
+    }
+
+    public static void main(String[] args) {
+        Executors.newSingleThreadExecutor();
     }
 }
