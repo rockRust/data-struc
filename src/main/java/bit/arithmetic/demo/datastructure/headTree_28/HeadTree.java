@@ -1,7 +1,7 @@
 package bit.arithmetic.demo.datastructure.headTree_28;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.PriorityQueue;
 
 /**
  * create at:  2019-11-20  16:39
@@ -71,45 +71,72 @@ public class HeadTree {
     private void delete() {
         rep[1] = rep[currentSize];
         rep[currentSize--] = 0;
-        heapify(rep[1], 1);
+        heapify(rep, rep[1], 1);
     }
 
-    private void heapify(int value, int i) {
+    /**
+     * 对于插入一个值的堆化
+     *
+     * @param arr
+     * @param value 要插入的值
+     * @param i     所处的位置
+     */
+    private void heapify(int[] arr, int value, int i) {
         int maxPos = i;
-        if (i << 1 < size && rep[i << 1] > rep[maxPos]) {
+        if (i << 1 < size && arr[i << 1] > arr[maxPos]) {
             maxPos = i << 1;
         }
 
-        if ((i << 1) + 1 < size && rep[(i << 1) + 1] > rep[maxPos]) {
-            maxPos = i << 1 + 1;
+        if ((i << 1) + 1 < size && arr[(i << 1) + 1] > arr[maxPos]) {
+            maxPos = (i << 1) + 1;
         }
 
         if (maxPos == i) {
             return;
         }
-        swap(rep, i, maxPos);
-        heapify(value, maxPos);
+        swap(arr, i, maxPos);
+        heapify(arr, value, maxPos);
+    }
+
+    public int[] sort(int[] arr) {
+//        HeadTree headTree = buildHead(arr);
+        return arr;
+    }
+
+    /**
+     * 将无序数组变成一个堆
+     *
+     * @param arr
+     */
+    private void buildHead(int[] arr) {
+
     }
 
     public void print() {
         System.out.println(Arrays.toString(rep));
     }
 
-    public static void main(String[] args) {
-        HeadTree h1 = new HeadTree(10);
-        h1.insert(5);
-        h1.insert(4);
-        h1.insert(6);
-        h1.insert(7);
-        h1.insert(9);
-        h1.insert(1);
-        h1.print();
-        h1.delete();
-        h1.print();
-        h1.delete();
-        h1.print();
-        h1.delete();
-        h1.print();
 
+    public static void main(String[] args) {
+//        HeadTree h1 = new HeadTree(10);
+//        h1.insert(5);
+//        h1.insert(4);
+//        h1.insert(6);
+//        h1.insert(7);
+//        h1.insert(9);
+//        h1.insert(1);
+//        h1.print();
+//        h1.delete();
+//        h1.print();
+//        h1.delete();
+//        h1.print();
+//        h1.delete();
+//        h1.print();
+
+        String s1 = "9";
+        String s2 = "90";
+        System.out.println(s1.compareTo(s2));
+        s2 = "1";
+        System.out.println(s1.compareTo(s2));
     }
 }
