@@ -1,5 +1,9 @@
 package bit.arithmetic.demo.threadtest;
 
+import java.util.concurrent.locks.Condition;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
+
 /**
  * create at:  2019-11-26  13:12
  *
@@ -62,8 +66,10 @@ public class NumberPrint {
 
     }
 
+
     public static void main(String[] args) {
         NumberPrint n = new NumberPrint();
         n.test();
+
     }
 }
