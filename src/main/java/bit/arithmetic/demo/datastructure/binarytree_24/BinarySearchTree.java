@@ -1,7 +1,5 @@
 package bit.arithmetic.demo.datastructure.binarytree_24;
 
-import javax.naming.NameNotFoundException;
-
 /**
  * create at:  2019-11-19  15:54
  *

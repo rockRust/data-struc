@@ -1,7 +1,6 @@
 package bit.arithmetic.demo.datastructure.headTree_28;
 
 import java.util.Arrays;
-import java.util.PriorityQueue;
 
 /**
  * create at:  2019-11-20  16:39
