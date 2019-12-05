@@ -1,5 +1,10 @@
 package bit.arithmetic.demo.single;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Set;
+
 /**
  * create at:  2019-12-04  15:08
  *
@@ -25,4 +30,12 @@ public class Single {
         return single;
     }
 
+    public static void main(String[] args) {
+
+        List<String> test = new ArrayList<>();
+        test.add("1");
+        test.add("2");
+        test.add("1");
+
+    }
 }
