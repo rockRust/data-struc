@@ -11,8 +11,9 @@ public class SimpleApplication {
     /**
      * 判断奇偶
      * 0000
-     *00001 :0
-     *      :1
+     * 00001 :0
+     * :1
+     *
      * @return
      */
     public static boolean isEven(int n) {
@@ -35,8 +36,9 @@ public class SimpleApplication {
      * 获得最后一个1
      * 1010 相反数的补码为  0110 再取与 10
      * 0110
-     *   10
-     *   ~(n-1)
+     * 10
+     * ~(n-1)
+     *
      * @param n
      * @return
      */
@@ -59,9 +61,9 @@ public class SimpleApplication {
         //交换两个数的值
         int a = -1, b = -2;
 
-        a=a^b;
-        b=a^b;
-        a=a^b;
+        a = a ^ b;
+        b = a ^ b;
+        a = a ^ b;
 
         System.out.println(a);
         System.out.println(b);

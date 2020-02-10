@@ -10,6 +10,7 @@ public class PowerOfTwo {
     /**
      * 判断一个数是否是二的幂次方
      * 0000000010000
+     *
      * @param n
      * @return
      */

@@ -22,7 +22,7 @@ public class ByteTest {
             byte[] buffer = new byte[1024];
 
             while ((read = bif.read(buffer)) != -1) {
-                String chunk = new String(buffer, 0,read,"UTF-8");
+                String chunk = new String(buffer, 0, read, "UTF-8");
                 System.out.print(chunk);
             }
         } catch (IOException e) {

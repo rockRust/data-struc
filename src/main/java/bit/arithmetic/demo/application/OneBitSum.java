@@ -2,8 +2,9 @@ package bit.arithmetic.demo.application;
 
 /**
  * create at:  2019-07-25  17:33
- *  111100000
- *  111000000
+ * 111100000
+ * 111000000
+ *
  * @author : js
  * @description: 位1的个数（汉明重量）
  * @eg:
