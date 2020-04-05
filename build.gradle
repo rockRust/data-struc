@@ -23,6 +23,6 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     // https://mvnrepository.com/artifact/org.springframework/spring-web
     compile group: 'org.springframework', name: 'spring-web', version: '5.2.2.RELEASE'
-    implementation 'com.google.guava:guava'
+//    implementation 'com.google.guava:guava'
 
 }

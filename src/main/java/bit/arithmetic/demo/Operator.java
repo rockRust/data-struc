@@ -9,7 +9,7 @@ package bit.arithmetic.demo;
 public class Operator {
     public static void main(String[] args) {
         /**
-         * 一个字节（B）占八位二进制（比特），一个整数占四个字节
+         * 一个字节（B）占八位二进制（比特 bit），一个整数占四个字节
          * 5: 00000000 00000000 00000000 00000101
          * 6: 00000000 00000000 00000000 00000110
          */
