@@ -50,7 +50,12 @@ public class Single {
         System.out.println(students);
     }
 
+
     public static class Student {
         public String name;
+
+        public String getName() {
+            return name;
+        }
     }
 }

@@ -11,8 +11,7 @@ public class ThreadLocalTest {
 
     ThreadLocal<Single.Student> param = new ThreadLocal<>();
 
-    static
-    Single.Student student = new Single.Student();
+    static Single.Student student = new Single.Student();
 
     public void testSet(String string) {
         param.set(student);
@@ -32,7 +31,7 @@ public class ThreadLocalTest {
                 public void run() {
                     ThreadLocalTest test = new ThreadLocalTest();
                     test.testSet("thread" + flag);
-                    String s = test.testChangeName();
+                    String s = test.testChangeName("1").getName();
                     System.out.print("thread name:" + Thread.currentThread().getName());
                     System.out.println(s);
                 }
