@@ -82,6 +82,7 @@ public class QuickSort {
         int j = p;
         for (int i = p; i < r; i++) {
             if (n[i] > partition) {
+
                 if (i == j) {
                     j++;
                 } else {

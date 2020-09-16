@@ -113,6 +113,7 @@ public class LinkListAlgo {
             this.next = next;
         }
 
+
         public int getData() {
             return data;
         }
@@ -131,5 +132,17 @@ public class LinkListAlgo {
         Node middleNode = findMiddleNode(node);
         System.out.println(middleNode);
 
+    }
+
+    public Node reversePra(Node target) {
+        Node curr, pre = null;
+        curr = target;
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = next;
+        }
+        return pre;
     }
 }

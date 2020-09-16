@@ -23,7 +23,10 @@ dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
     // https://mvnrepository.com/artifact/org.springframework/spring-web
     compile group: 'org.springframework', name: 'spring-web', version: '5.2.2.RELEASE'
-//    implementation 'com.google.guava:guava'
+
+    // https://mvnrepository.com/artifact/com.google.guava/guava
+    compile group: 'com.google.guava', name: 'guava', version: '29.0-jre'
+
     // https://mvnrepository.com/artifact/com.alibaba/easyexcel
     compile group: 'com.alibaba', name: 'easyexcel', version: '2.1.6'
 
