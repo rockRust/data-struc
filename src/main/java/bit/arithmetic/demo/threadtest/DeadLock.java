@@ -39,9 +39,13 @@ public class DeadLock implements Runnable {
     });
 
     public static void main(String[] args) {
-        DeadLock deadLock = new DeadLock();
-        deadLock.a.start();
-        deadLock.b.start();
+//        DeadLock deadLock = new DeadLock();
+//        deadLock.a.start();
+//        deadLock.b.start();
+        String sql = "alter table t_pc_chatroom_message_2020_%s drop index `idx_roomid_time_林`;";
+        for (int i = 44; i < 55; i++) {
+            System.out.println(String.format(sql, i));
+        }
     }
 
     @Override

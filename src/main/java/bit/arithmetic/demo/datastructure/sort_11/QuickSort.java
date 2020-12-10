@@ -1,6 +1,6 @@
 package bit.arithmetic.demo.datastructure.sort_11;
 
-import java.util.Arrays;
+import java.util.concurrent.locks.ReentrantLock;
 
 /**
  * create at:  2019-11-08  11:15
@@ -108,5 +108,8 @@ public class QuickSort {
 //        for (int j = 1; (j <<= 1) < 5;  ^= 1);
         int j = 5;
         System.out.println(j << 1);
+        ReentrantLock lock = new ReentrantLock();
+        lock.lock();
+        lock.unlock();
     }
 }

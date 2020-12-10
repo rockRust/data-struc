@@ -16,29 +16,28 @@ public class ThreadPoolTest {
 
     AtomicInteger count = new AtomicInteger(0);
 
+    public void doSomething() {
+
+    }
+
     private void add() throws ExecutionException, InterruptedException {
         List<Future> futures = new ArrayList<>();
         for (int i = 0; i < 5; i++) {
-            Future<?> future = threadPool.submit(() -> {
-                count.incrementAndGet();
-                System.out.println("add...");
-                try {
-                    Thread.sleep(1);
-                } catch (InterruptedException e) {
-
-                }
-            });
+            Future<?> future = threadPool.submit(() -> doSomething());
             futures.add(future);
         }
-        for (Future future:futures){
+        for (Future future : futures) {
             future.get();
         }
 
     }
 
+
     public static void main(String[] args) throws ExecutionException, InterruptedException {
         ThreadPoolTest test = new ThreadPoolTest();
         test.add();
         System.out.println("result:" + test.count.get());
+
+
     }
 }
