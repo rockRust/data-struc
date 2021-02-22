@@ -16,7 +16,6 @@ public class ByteTest {
         BufferedInputStream bif = null;
         try {
             socket = new Socket("203.198.238.4", 29005);
-
             bif = new BufferedInputStream(socket.getInputStream());
             int read = 0;
             byte[] buffer = new byte[1024];

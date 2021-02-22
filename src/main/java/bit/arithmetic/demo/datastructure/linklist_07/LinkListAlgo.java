@@ -23,7 +23,19 @@ public class LinkListAlgo {
             pre = curr;
             curr = next;
         }
-        return list;
+        return pre;
+    }
+
+    public static Node reserveTest(Node list) {
+        Node curr, pre = null;
+        curr = list;
+        while (curr != null) {
+            Node next = curr.next;
+            curr.next = pre;
+            pre = curr;
+            curr = next;
+        }
+        return pre;
     }
 
     /**
@@ -122,15 +134,24 @@ public class LinkListAlgo {
     }
 
     public static void main(String[] args) {
-        Node list1 = new Node(1, new Node(3, null));
-        Node list2 = new Node(2, new Node(4, null));
-        Node node = mergeTwoLists(list1, list2);
-        System.out.println("-------" + node.data);
+//        Node list1 = new Node(1, new Node(3, null));
+//        Node list2 = new Node(2, new Node(4, null));
+//        Node node = mergeTwoLists(list1, list2);
+//        System.out.println("-------" + node.data);
+//
+////        Node node1 = deleteLastKth(node, 3);
+////        System.out.println(node1);
+//        Node middleNode = findMiddleNode(node);
+//        System.out.println(middleNode);
 
-//        Node node1 = deleteLastKth(node, 3);
-//        System.out.println(node1);
-        Node middleNode = findMiddleNode(node);
-        System.out.println(middleNode);
+        Node last =  null;
+        for(int i=6;i>0;i--){
+            last = new Node(i,last);
+        }
+        print(last);
+        Node reserve = reserve(last);
+        System.out.println("");
+        print(reserve);
 
     }
 
@@ -144,5 +165,14 @@ public class LinkListAlgo {
             curr = next;
         }
         return pre;
+    }
+
+
+
+    public static void print(Node node){
+        while(node!=null){
+            System.out.print(node.data+"->");
+            node = node.next;
+        }
     }
 }
