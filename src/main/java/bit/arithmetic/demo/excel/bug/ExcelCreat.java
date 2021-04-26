@@ -4,6 +4,7 @@ import com.alibaba.excel.EasyExcel;
 import com.alibaba.excel.ExcelWriter;
 import com.alibaba.excel.write.metadata.WriteSheet;
 
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.util.Collections;
@@ -22,10 +23,15 @@ public class ExcelCreat {
         ExcelWriter excelWriter = null;
         excelWriter = EasyExcel.write(new FileOutputStream("all.xlsx")).build();
         WriteSheet writeSheet = EasyExcel.writerSheet(1, "test")
-            .head(HeadType.class)
-            .build();
+                .head(HeadType.class)
+                .build();
         excelWriter.write(data, writeSheet);
         excelWriter.finish();
+        Runtime.getRuntime().addShutdownHook(new Thread(() -> {
+            System.out.println("run shutdown hook");
+            File tempFile = new File("all.xlsx");
+            tempFile.delete();
+        }));
     }
 
     private static List<DataType> getData() {
