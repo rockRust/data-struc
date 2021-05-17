@@ -26,8 +26,14 @@ class MyThreadPoolExecutorTest {
                 }
             });
         }
-        Thread.sleep(10000);
+        // Thread.sleep(10000);
+        // exec.terminated();
         exec.shutdown();
 
+    }
+
+    public static void main(String[] args) {
+        Integer a = 1;
+        System.out.println(a.equals(null));
     }
 }
