@@ -3,6 +3,7 @@ package bit.arithmetic.demo.threadtest;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.BlockingQueue;
+import java.util.concurrent.FutureTask;
 import java.util.concurrent.RejectedExecutionHandler;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.ThreadPoolExecutor;
@@ -39,6 +40,11 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor {
         super.beforeExecute(t, r);
         long currTime = System.nanoTime();
         startTime.set(currTime);
+        log.info(r.getClass().toString());
+        if (r instanceof FutureTask) {
+            FutureTask futureTask = (FutureTask) r;
+            log.info("found myRunnable");
+        }
         log.info("execute before method");
     }
 
@@ -64,5 +70,20 @@ public class MyThreadPoolExecutor extends ThreadPoolExecutor {
             super.terminated();
         }
     }
+
+    static class MyRunnable implements Runnable {
+
+        @Override
+        public void run() {
+            System.out.println("----------run-------");
+            try {
+                Thread.sleep(5000);
+                log.info("debug");
+            } catch (InterruptedException e) {
+
+            }
+        }
+    }
+
 
 }

@@ -17,23 +17,12 @@ class MyThreadPoolExecutorTest {
                 0, TimeUnit.MINUTES, new LinkedBlockingQueue<>(10),
                 Executors.defaultThreadFactory(), new ThreadPoolExecutor.AbortPolicy());
         for (int i = 0; i < 5; i++) {
-            exec.submit(() -> {
-                try {
-                    Thread.sleep(5000);
-                    log.info("debug");
-                } catch (InterruptedException e) {
-
-                }
-            });
+            exec.submit(new MyThreadPoolExecutor.MyRunnable());
         }
-        // Thread.sleep(10000);
+        Thread.sleep(10000);
         // exec.terminated();
         exec.shutdown();
 
     }
 
-    public static void main(String[] args) {
-        Integer a = 1;
-        System.out.println(a.equals(null));
-    }
 }

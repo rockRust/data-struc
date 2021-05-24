@@ -1,5 +1,6 @@
 package bit.arithmetic.demo.concurrent.aqs;
 
+import java.util.concurrent.CyclicBarrier;
 import java.util.concurrent.Semaphore;
 
 /**
@@ -8,6 +9,7 @@ import java.util.concurrent.Semaphore;
  * @date 2021/5/6
  */
 public class SemaphoreTest {
+
     public static void main(String[] args) {
         Semaphore s = new Semaphore(2);
         try {
