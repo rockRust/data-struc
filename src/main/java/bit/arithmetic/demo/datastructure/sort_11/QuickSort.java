@@ -1,5 +1,6 @@
 package bit.arithmetic.demo.datastructure.sort_11;
 
+import java.util.Arrays;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
@@ -22,26 +23,6 @@ public class QuickSort {
      */
     public static void quickSortPart(int[] n, int p, int r) {
         if (p >= r) return;
-        //以这个值为分隔点
-//        int value = n[r];
-//        //标记要插入的位置
-//        int j = p;
-//        for (int i = p; i < r; i++) {
-//            if (n[i] < value) {
-//                //将该值与i位的swap
-//                if (i == j) {
-//                    j++;
-//                } else {
-//                    n[j] = n[i] ^ n[j];
-//                    n[i] = n[i] ^ n[j];
-//                    n[j] = n[i] ^ n[j];
-//                    j++;
-//                }
-//            }
-//        }
-//        //将n[r] 与n[i] swap
-//        n[r] = n[j];
-//        n[j] = value;
         int j = partition(n, p, r);
         quickSortPart(n, 0, j - 1);
         quickSortPart(n, j + 1, r);
@@ -99,17 +80,11 @@ public class QuickSort {
     }
 
     public static void main(String[] args) {
-//        int[] n = {8, 5, 7, 1, 6, 2, 6};
-//        int[] n = {1, 1, 2};
-//        int[] ints = quickSort(n);
-//        System.out.println(Arrays.toString(ints));
-//        int kth = findKth(n, 2);
-//        System.out.println(kth);
-//        for (int j = 1; (j <<= 1) < 5;  ^= 1);
-        int j = 5;
-        System.out.println(j << 1);
-        ReentrantLock lock = new ReentrantLock();
-        lock.lock();
-        lock.unlock();
+       int[] n = {8, 5, 7, 1, 6, 2, 6};
+       // int[] n = {1, 1, 2};
+       int[] ints = quickSort(n);
+       System.out.println(Arrays.toString(ints));
+       int kth = findKth(n, 2);
+       System.out.println(kth);
     }
 }
