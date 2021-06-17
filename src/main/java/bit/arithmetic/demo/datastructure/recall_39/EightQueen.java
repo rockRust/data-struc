@@ -6,7 +6,7 @@ import java.util.Arrays;
  * create at:  2019-12-09  17:23
  *
  * @author : js
- * @description:回溯算法的应用，八皇后问题 回溯就是循环内递归，这样每次递归判断失败后，会回到上一层此时i就相当于减1，
+ * @description:回溯算法的应用，八皇后问题 回溯就是循环内递归(类似于深度优先算法dfs)，这样每次递归判断失败后，会回到上一层此时i就相当于减1，
  * 回溯的效果就是能回到上一次的状态
  */
 public class EightQueen {
