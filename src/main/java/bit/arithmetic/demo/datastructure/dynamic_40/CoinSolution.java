@@ -1,8 +1,6 @@
 package bit.arithmetic.demo.datastructure.dynamic_40;
 
 import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
 
 /**
  * @author jiaosong
@@ -11,9 +9,16 @@ import java.util.Map;
  */
 public class CoinSolution {
 
-    static Map<Integer, Integer> mem = new HashMap<>();
+    static int maxAmount = 0;
+
+    static int[] mem;
 
     public static int coinChange(int[] coins, int amount) {
+        if (amount > maxAmount) {
+            maxAmount = amount;
+            mem = new int[maxAmount + 1];
+        }
+
         if (amount < 1) {
             return -1;
         }
@@ -21,8 +26,8 @@ public class CoinSolution {
         if (Arrays.stream(coins).anyMatch(coinAmount -> coinAmount == amount)) {
             return 1;
         }
-        Integer memAmount = mem.get(amount);
-        if (memAmount != null) {
+        Integer memAmount = mem[amount];
+        if (memAmount != 0) {
             return memAmount;
         }
         int min = Integer.MAX_VALUE;
@@ -35,13 +40,31 @@ public class CoinSolution {
         if (min == Integer.MAX_VALUE) {
             return -1;
         }
-        mem.put(amount, min + 1);
+        mem[amount] = min + 1;
         return min + 1;
     }
 
+
+    public static int second(int[] coins, int amount) {
+        int[] dp = new int[amount + 1];
+
+        Arrays.fill(dp, amount + 1);
+        dp[0] = 0;
+        for (int i = 1; i <= amount; i++) {
+            for (int j = 0; j < coins.length; j++) {
+                if (i >= coins[j]) {
+                    dp[i] = Math.min(dp[i], dp[i - coins[j]]+1);
+                }
+            }
+        }
+        return dp[amount] > amount ? -1 : dp[amount];
+    }
+
     public static void main(String[] args) {
-        int[] coins = {2};
-        int coin = coinChange(coins, 3);
+        int[] coins = {186, 419, 83, 408};
+        // int[] coins = {1, 2, 5};
+        int coin = second(coins, 6249);
+        // int coin = second(coins, 11);
         System.out.println("result:" + coin);
     }
 }
