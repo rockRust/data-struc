@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <title>client1</title>
+</head>
+<body>
+<script type="text/javascript">
+    var socket;
+
+    //如果浏览器支持WebSocket
+    if(window.WebSocket){
+        //参数就是与服务器连接的地址
+       //  socket = new WebSocket("ws://10.155.54.186:20667?userId=1&deviceType=1&type=0&subType=3");
+		// socket = new WebSocket("ws://10.155.10.135:20667?userId=1&deviceType=1&type=0&subType=3");
+		  socket = new WebSocket("ws://10.155.20.84:12345?userId=1&deviceType=1&type=0&subType=3");
+
+        //客户端收到服务器消息的时候就会执行这个回调方法
+        socket.onmessage = function (event) {
+            var ta = document.getElementById("responseText");
+            ta.value = ta.value + "\n"+event.data;
+        }
+
+        //连接建立的回调函数
+        socket.onopen = function(event){
+            var ta = document.getElementById("responseText");
+            ta.value = "连接开启";
+        }
+
+        //连接断掉的回调函数
+        socket.onclose = function (event) {
+            var ta = document.getElementById("responseText");
+            ta.value = ta.value +"\n"+"连接关闭";
+        }
+    }else{
+        alert("浏览器不支持WebSocket！");
+    }
+
+    //发送数据
+    function send(message){
+        if(!window.WebSocket){
+            return;
+        }
+
+        //当websocket状态打开
+        if(socket.readyState == WebSocket.OPEN){
+            socket.send(message);
+        }else{
+            alert("连接没有开启");
+        }
+    }
+	
+	
+	
+	// var int=self.setInterval("ping()",3000);
+
+</script>
+<form onsubmit="return false">
+	<input type="text" id="clock" />
+	<input type="button" id="btn1" value="开启心跳" />
+	<input type="button" id="btn2" value="关闭心跳" />
+    <textarea name = "message" style="width: 400px;height: 200px"></textarea>
+
+    <input type ="button" value="发送数据" onclick="send(this.form.message.value);">
+
+    <h3>服务器输出：</h3>
+
+    <textarea id ="responseText" style="width: 400px;height: 300px;"></textarea>
+
+    <input type="button" onclick="javascript:document.getElementById('responseText').value=''" value="清空数据">
+	<h4>{"msgId":123,"sendTime":12122,"userId":1,"content":"哈哈","type":1,"subType":0,"seq":1624954709984579560,"deviceType":1,"sessionId":"12321"}</h4>
+	
+</form>
+<script>
+
+	function ping()
+	{
+		var ping = "{\"content\":\"ping\",\"type\":0,\"subType\":0}";
+		send(ping);
+		
+		var d=new Date();
+		var t=d.toLocaleTimeString();
+		document.getElementById("clock").value=t;
+	}
+	
+	
+	 var obtn1=document.getElementById('btn1');
+    var obtn2=document.getElementById('btn2');
+    var timer=null;
+    obtn1.onclick=function() {
+        timer=setInterval("ping()",2000);
+    }
+    obtn2.onclick=function() {
+        clearInterval(timer);        //关闭循环
+    }
+</script>
+</body>
+</html>
