@@ -26,6 +26,8 @@ public class ByteTest {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (Exception e) {
+            e.printStackTrace();
         } finally {
             if (bif != null) {
                 try {
@@ -45,3 +47,4 @@ public class ByteTest {
         }
     }
 }
+
